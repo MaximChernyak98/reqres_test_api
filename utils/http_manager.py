@@ -3,6 +3,6 @@ import requests
 
 class HttpManager:
     @staticmethod
-    def get(url: str):
-        result = requests.get(url)
+    def post(url: str):
+        result = requests.post(url)
         return result
