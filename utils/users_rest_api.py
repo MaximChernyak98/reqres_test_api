@@ -1,6 +1,6 @@
 import configparser
 from utils.http_manager import HttpManager
-from utils.json_new_user import JSON_new_user
+from utils.json_do_register import JSON_do_register
 
 
 class Api:
@@ -8,11 +8,11 @@ class Api:
     parser.read('users_config.ini')
 
     BASE_URL = parser.get('Users', 'base_url')
-    CREATE_USER = BASE_URL + 'tasks/rest/createuser/'
+    CREATE_USER = BASE_URL + 'tasks/rest/doregister'
 
     @staticmethod
     def create_user():
         url = Api.CREATE_USER
-        json = JSON_new_user.create_minimum_json('1@mail.ru', 'ma', '[1]', '[2]')
+        json = JSON_do_register.create('1@mail.ru', 'ma', '1')
         result = HttpManager.post(url, json)
         return result
