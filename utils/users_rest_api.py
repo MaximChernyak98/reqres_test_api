@@ -11,8 +11,8 @@ class Api:
     CREATE_USER = BASE_URL + 'tasks/rest/doregister'
 
     @staticmethod
-    def create_user():
+    def create_user(user_email, user_name, user_password):
         url = Api.CREATE_USER
-        json = JSON_do_register.create('1@mail.ru', 'ma', '1')
+        json = JSON_do_register.create(user_email, user_name, user_password)
         result = HttpManager.post(url, json)
         return result
